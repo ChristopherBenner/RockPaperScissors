@@ -22,7 +22,7 @@ function getUserChoice(){
         if (['r','p','s','x'].includes(userChoice)){
             validChoice = true;
         } else {
-            console.log("Choose a valid option");
+            alert("Choose a valid option");
         }
     }
     return userChoice;
@@ -53,13 +53,13 @@ function playRound(){
     }
 }
 function displayMessage(){
-    console.log(`Round ${games} results - Player: ${userChoice} vs Computer: ${computerChoice}`);
-    console.log(`${roundWinner} wins!`);
-    console.log('------------');
-    console.log(`Current scores - Player: ${userScore}, Computer: ${computerScore}, Ties: ${ties}`);
+    alert(`Round ${games} results - Player: ${userChoice} vs Computer: ${computerChoice}\n
+    ${roundWinner} wins!\n
+    ------------\n
+    Current scores - Player: ${userScore}, Computer: ${computerScore}, Ties: ${ties}`);
 }
 
 while (playing){
     playRound();
 }
-console.log('Thank you for playing');
+alert('Thank you for playing');
