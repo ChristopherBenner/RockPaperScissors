@@ -27,8 +27,8 @@ function getUserChoice(){
     }
     return userChoice;
 }
-function playRound(){
-    userChoice = getUserChoice();
+function playRound(choice){
+    userChoice = choice[0].toLowerCase();
     computerChoice = getComputerChoice();
     play = userChoice + computerChoice;
     if (userChoice === 'x'){
@@ -58,8 +58,29 @@ function displayMessage(){
     ------------\n
     Current scores - Player: ${userScore}, Computer: ${computerScore}, Ties: ${ties}`);
 }
-
+/*
 while (playing){
     playRound();
-}
-alert('Thank you for playing');
+}*/
+//alert('Thank you for playing');
+
+
+
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach((button) =>{
+    button.addEventListener('click', () => {
+        let choice = String(button.id);
+        //console.log(choice);
+        playRound(choice);
+        // const container = document.querySelector('body');
+        const scores = document.querySelector('.scores');
+        scores.textContent = `Player Scores: ${userScore} Computer Score: ${computerScore} Games Played: ${games}`;
+        //container.appendChild(scores)
+        //alert(button.id);
+    });
+});
+/*
+const container = document.querySelector('body');
+const scores = document.createElement('h2');
+scores.textContent = `Player Scores: ${userScore} Computer Score: ${computerScore} Games Played: ${games}`;
+container.appendChild(scores)*/

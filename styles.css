@@ -1,0 +1,15 @@
+.choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.choices > div {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+}
+
+#rock {
+    color: blue;
+}
