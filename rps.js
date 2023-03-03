@@ -73,10 +73,14 @@ buttons.forEach((button) =>{
         //console.log(choice);
         playRound(choice);
         // const container = document.querySelector('body');
-        const scores = document.querySelector('.scores');
-        scores.textContent = `Player Scores: ${userScore} Computer Score: ${computerScore} Games Played: ${games}`;
+        //const scores = document.querySelector('.scores');
+        //scores.textContent = `Player Scores: ${userScore} Computer Score: ${computerScore} Games Played: ${games}`;
         //container.appendChild(scores)
         //alert(button.id);
+        const playerScore = document.querySelector('#playerScore');
+        playerScore.textContent = userScore;
+        const compScore = document.querySelector('#computerScore');
+        compScore.textContent = computerScore;
     });
 });
 /*

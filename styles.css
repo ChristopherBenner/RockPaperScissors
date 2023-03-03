@@ -1,15 +1,43 @@
+body {
+    background-color: aliceblue;
+
+}
+.scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*
+.score {
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+}*/
+.score > h2 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+.score > h1 {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
 .choices {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
 }
-.choices > div {
+.choices > img {
     width: 200px;
-    height: 200px;
-    background-color: green;
+    height: 200px
 }
 
-#rock {
-    color: blue;
+h1, h2, p {
+    text-align: center;
+}
+
+p {
+    font-size: 24px;
 }
