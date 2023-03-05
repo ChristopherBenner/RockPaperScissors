@@ -1,12 +1,82 @@
 body {
     /*background-color: black;*/
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
 
 }
 .scoreboard {
-    display: flex;
+   /*display: flex;*/
+    display: none;
     flex-direction: row;
     justify-content: space-around;
 }
+.weapons {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.battle {
+    display: flex;
+    flex-shrink: 1;
+    justify-content: center;
+    background-color: black;
+    /*max-width: 100%;*/
+    padding: 10px;
+}
+
+.players, .results {
+    display: flex;
+    flex-shrink: 1;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.players > h2 {
+    color: gold;
+    font-weight: 700;
+    margin: 2% 10%;
+}
+
+.results > h2 {
+    color: gold;
+    font-weight: 700;
+    margin: 2% 10%;
+    font-size: 60px;
+}
+
+.weapon {
+    width: 300px;
+    max-height: 300px;
+}
+.weapons > img {
+    min-width: 0;
+    max-height: 300px;
+    flex-shrink: 1;
+    aspect-ratio: 1/1;
+}
+
+#playerWeapon {
+    border: solid 10px rgb(30, 14, 77);
+    border-radius: 50%;
+}
+
+#computerWeapon {
+    border: solid 10px rgb(101, 29, 3);
+    border-radius: 50%;
+}
+/*
+.results {
+    display: flex;
+    justify-content: space-around;
+
+}*/
 
 .score > h2 {
     font-size: 30px;
@@ -19,7 +89,8 @@ body {
     text-align: center;
 }
 .choices {
-    display: flex;
+    /*display: flex;*/
+    display: none;
     flex-direction: row;
     justify-content: center;
     
