@@ -1,4 +1,4 @@
-const choices = ['r','p','s'];
+const choices = ['rock','paper','scissors'];
 let playing = true;
 let userChoice;
 let computerChoice;
@@ -15,76 +15,71 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function getUserChoice(){
-    let validChoice = false;
-    while (validChoice === false){
-        userChoice = prompt("Enter your weapon (r, p, s) (x to quit) ").toLowerCase();
-        if (['r','p','s','x'].includes(userChoice)){
-            validChoice = true;
-        } else {
-            alert("Choose a valid option");
-        }
-    }
-    return userChoice;
-}
 function playRound(choice){
-    userChoice = choice[0].toLowerCase();
+    //userChoice = choice[0].toLowerCase();
+    userChoice = choice;
     computerChoice = getComputerChoice();
     play = userChoice + computerChoice;
-    if (userChoice === 'x'){
-        playing = false;
-    }else if (userChoice === computerChoice){
+    
+    if (userChoice === computerChoice){
         ties++;
         roundWinner = 'tie';
-    } else if (['rp','ps','sr'].includes(play)){
+    } else if (['rockpaper','paperscissors','scissorsrock'].includes(play)){
         computerScore++;
         roundWinner = 'computer';
     } else {
         userScore++;
         roundWinner = 'player';
     }
-    games++;
-    if (playing){
-        displayMessage();
-        playAgain = prompt("Do you want to play again (y/n)? ");
-        if (playAgain.toLowerCase() === 'n'){
-            playing = false;
-        }
-    }
+    games++;  
+    set_stage(userChoice, computerChoice);
 }
-function displayMessage(){
-    alert(`Round ${games} results - Player: ${userChoice} vs Computer: ${computerChoice}\n
-    ${roundWinner} wins!\n
-    ------------\n
-    Current scores - Player: ${userScore}, Computer: ${computerScore}, Ties: ${ties}`);
-}
-/*
-while (playing){
-    playRound();
-}*/
-//alert('Thank you for playing');
+function set_stage(userChoice, computerChoice){
+    // Add the ability to have the choice pop out
+    // Add the ability to see who wins each round
+    // Show the new score
+    // Add the option to reset or play again
+    // On exit, update the scoreboard
 
+    // Step one -> remove everything start with just removing the images
+    removeItems();
+    let chosen = document.querySelector('h1');
+    let playerWeapon = document.createElement('img');
+    playerWeapon.src = `images/${userChoice}.jpg`;
+    let computerWeapon = document.createElement('img');
+    computerWeapon.src = `images/${computerChoice}.jpg`;
+    
+    chosen.insertAdjacentElement('afterend',playerWeapon);
+    chosen.insertAdjacentElement('afterend',computerWeapon);
+    // chosen.appendChild(playerWeapon);
+    // Step two -> display the current choices
+    // Step three -> Add a scoreboard
+    // Step four -> Add buttons
+
+}
+function removeItems(){
+    let imgs = document.querySelectorAll("img");
+    for (img of imgs) {
+        img.parentNode.remove();
+    }
+    let scoreboard = document.querySelector(".scoreboard");
+    scoreboard.remove();
+}
 
 
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         let choice = String(button.id);
-        //console.log(choice);
         playRound(choice);
-        // const container = document.querySelector('body');
-        //const scores = document.querySelector('.scores');
-        //scores.textContent = `Player Scores: ${userScore} Computer Score: ${computerScore} Games Played: ${games}`;
-        //container.appendChild(scores)
-        //alert(button.id);
-        const playerScore = document.querySelector('#playerScore');
+        //console.log(choice);
+        //console.log(computerChoice);
+        // Add the rest of this to another function
+        // Have this update following the set_stage function
+        
+        /*const playerScore = document.querySelector('#playerScore');
         playerScore.textContent = userScore;
         const compScore = document.querySelector('#computerScore');
-        compScore.textContent = computerScore;
+        compScore.textContent = computerScore;*/
     });
 });
-/*
-const container = document.querySelector('body');
-const scores = document.createElement('h2');
-scores.textContent = `Player Scores: ${userScore} Computer Score: ${computerScore} Games Played: ${games}`;
-container.appendChild(scores)*/
