@@ -35,40 +35,25 @@ function playRound(choice){
     set_stage(userChoice, computerChoice);
 }
 function set_stage(userChoice, computerChoice){
-    // Add the ability to have the choice pop out
-    // Add the ability to see who wins each round
-    // Show the new score
-    // Add the option to reset or play again
-    // On exit, update the scoreboard
-
-    // Step one -> remove everything start with just removing the images
-    removeItems();
-    let chosen = document.querySelector('h1');
-    let playerWeapon = document.createElement('img');
+    let playerWeapon = document.getElementById('playerWeapon');
     playerWeapon.src = `images/${userChoice}.jpg`;
-    let computerWeapon = document.createElement('img');
+    let computerWeapon = document.getElementById('computerWeapon');
     computerWeapon.src = `images/${computerChoice}.jpg`;
-    
-    chosen.insertAdjacentElement('afterend',playerWeapon);
-    chosen.insertAdjacentElement('afterend',computerWeapon);
-    // chosen.appendChild(playerWeapon);
-    // Step two -> display the current choices
-    // Step three -> Add a scoreboard
-    // Step four -> Add buttons
+
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('battle').style.display = 'flex';
+
+    document.getElementById('battlePlayerScore').textContent = userScore;
+    document.getElementById('battleComputerScore').textContent = computerScore;   
 
 }
-function removeItems(){
-    let imgs = document.querySelectorAll("img");
-    for (img of imgs) {
-        img.parentNode.remove();
-    }
-    let scoreboard = document.querySelector(".scoreboard");
-    scoreboard.remove();
-}
+
 
 function showChoices(){
     document.getElementById('home').style.display = 'flex';
     document.getElementById('battle').style.display = 'none';
+    document.getElementById('playerScore').textContent = userScore;
+    document.getElementById('computerScore').textContent = computerScore;
 }
 
 
@@ -77,7 +62,7 @@ buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         let choice = String(button.id);
         playRound(choice);
-        //console.log(choice);
+        console.log(choice);
         //console.log(computerChoice);
         // Add the rest of this to another function
         // Have this update following the set_stage function
