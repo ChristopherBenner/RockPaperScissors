@@ -7,9 +7,11 @@ body {
     max-width: 100%;
 
 }
-.scoreboard {
-   /*display: flex;*/
+#home {
     display: none;
+}
+.scoreboard {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
@@ -22,15 +24,20 @@ body {
     min-width: 0;
 }
 
-.battle {
+#battle {
     display: flex;
+    flex-direction: column;
     flex-shrink: 1;
     justify-content: center;
     background-color: black;
     padding: 10px;
     width: 100%;
 }
-
+.weapons > div > button {
+    width: 100px;
+    align-self: center;
+    padding: 10px;
+}
 .player > h2 {
     color: gold;
     font-weight: 700;
@@ -50,7 +57,7 @@ body {
 }
 .weapons > div > img { /* > img */
     min-width: 0;
-    max-height: 300px;
+    max-height: 250px;
     flex-shrink: 1;
     aspect-ratio: 1/1;
 }
@@ -61,10 +68,11 @@ body {
 .player {
     display: flex;
     flex-direction: column;
+    padding-bottom: 0px;
 }
 
 .versus {
-    flex-shrink: 3;
+    flex-shrink: 1;
 }
 
 #playerWeapon {
@@ -88,8 +96,7 @@ body {
     text-align: center;
 }
 .choices {
-    /*display: flex;*/
-    display: none;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     

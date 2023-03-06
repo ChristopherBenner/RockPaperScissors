@@ -66,6 +66,11 @@ function removeItems(){
     scoreboard.remove();
 }
 
+function showChoices(){
+    document.getElementById('home').style.display = 'flex';
+    document.getElementById('battle').style.display = 'none';
+}
+
 
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach((button) =>{
@@ -76,7 +81,7 @@ buttons.forEach((button) =>{
         //console.log(computerChoice);
         // Add the rest of this to another function
         // Have this update following the set_stage function
-        
+
         /*const playerScore = document.querySelector('#playerScore');
         playerScore.textContent = userScore;
         const compScore = document.querySelector('#computerScore');
