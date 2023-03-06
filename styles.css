@@ -1,5 +1,5 @@
 body {
-    /*background-color: black;*/
+    background-color: black;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -15,7 +15,12 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color: gold;
 }
+.instructions > p {
+    color: whitesmoke;
+}
+
 .weapons {
     display: flex;
     flex-direction: row;
@@ -30,7 +35,6 @@ body {
     flex-direction: column;
     flex-shrink: 1;
     justify-content: center;
-    background-color: black;
     padding: 10px;
     width: 100%;
 }
@@ -39,12 +43,30 @@ body {
     align-self: center;
     padding: 10px;
 }
+#gameOver {
+    display: none;
+}
 .player > h2 {
     color: gold;
     font-weight: 700;
     font-size: 40px;
 }
 
+#final {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#final > h1 {
+    font-size: 75px;
+    font-weight: 700;
+    color: gold;
+}
+#final > button {
+    width: 100px;
+    padding: 10px;
+}
 .weapons {
     padding: 10px;
 }
@@ -56,7 +78,7 @@ body {
     flex-wrap: nowrap;
     padding: 10px;
 }
-.weapons > div > img { /* > img */
+.weapons > div > img { 
     min-width: 0;
     max-height: 250px;
     flex-shrink: 1;
@@ -107,7 +129,7 @@ body {
     width: 200px;
     height: 200px;
     min-width: 0;
-    border: solid 10px red;
+    border: solid 10px rgb(30, 14, 77);
     border-radius: 50%;
     flex-shrink: 1;
 }

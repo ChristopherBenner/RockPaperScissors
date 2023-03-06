@@ -6,7 +6,8 @@ let userScore = 0;
 let games = 0;
 let computerScore = 0;
 let ties = 0;
-let roundWinner;
+let playerOutcome;
+let computerOutcome;
 let playAgain;
 let play;
 
@@ -23,13 +24,16 @@ function playRound(choice){
     
     if (userChoice === computerChoice){
         ties++;
-        roundWinner = 'tie';
+        playerOutcome = 'Tie';
+        computerOutcome = 'Tie';
     } else if (['rockpaper','paperscissors','scissorsrock'].includes(play)){
         computerScore++;
-        roundWinner = 'computer';
+        playerOutcome = 'Lose';
+        computerOutcome = 'Win';
     } else {
         userScore++;
-        roundWinner = 'player';
+        playerOutcome = 'Win';
+        computerOutcome = 'Lose';
     }
     games++;  
     set_stage(userChoice, computerChoice);
@@ -45,7 +49,13 @@ function set_stage(userChoice, computerChoice){
 
     document.getElementById('battlePlayerScore').textContent = userScore;
     document.getElementById('battleComputerScore').textContent = computerScore;   
+    document.getElementById('playerResult').textContent = playerOutcome;
+    document.getElementById('computerResult').textContent = computerOutcome;
 
+    if (userScore >= 5 || computerScore >= 5){
+        document.getElementById('showChoices').style.display = 'none';
+        document.getElementById('gameOver').style.display = 'flex';
+    }
 }
 
 
@@ -56,20 +66,26 @@ function showChoices(){
     document.getElementById('computerScore').textContent = computerScore;
 }
 
+function gameOver(){
+    document.getElementById('battle').style.display = 'none';
+    document.getElementById('final').style.display = 'flex';
+    document.getElementById('finalResults').textContent = `You ${playerOutcome}`;
+}
+
+function restart(){
+    userScore = 0;
+    computerScore = 0;
+
+    showChoices();
+    document.getElementById('final').style.display = 'none';
+    document.getElementById('showChoices').style.display = 'flex';
+        document.getElementById('gameOver').style.display = 'none';
+}
 
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach((button) =>{
     button.addEventListener('click', () => {
         let choice = String(button.id);
         playRound(choice);
-        console.log(choice);
-        //console.log(computerChoice);
-        // Add the rest of this to another function
-        // Have this update following the set_stage function
-
-        /*const playerScore = document.querySelector('#playerScore');
-        playerScore.textContent = userScore;
-        const compScore = document.querySelector('#computerScore');
-        compScore.textContent = computerScore;*/
     });
 });
