@@ -19,7 +19,7 @@ body {
     flex-shrink: 1;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: 0;
 }
 
 .battle {
@@ -27,39 +27,44 @@ body {
     flex-shrink: 1;
     justify-content: center;
     background-color: black;
-    /*max-width: 100%;*/
+    padding: 10px;
+    width: 100%;
+}
+
+.player > h2 {
+    color: gold;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.weapons {
     padding: 10px;
 }
-
-.players, .results {
-    display: flex;
+.weapons > div {
+    min-width: 0;
     flex-shrink: 1;
-    justify-content: space-around;
-    background-color: black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
 }
-
-.players > h2 {
-    color: gold;
-    font-weight: 700;
-    margin: 2% 10%;
-}
-
-.results > h2 {
-    color: gold;
-    font-weight: 700;
-    margin: 2% 10%;
-    font-size: 60px;
-}
-
-.weapon {
-    width: 300px;
-    max-height: 300px;
-}
-.weapons > img {
+.weapons > div > img { /* > img */
     min-width: 0;
     max-height: 300px;
     flex-shrink: 1;
     aspect-ratio: 1/1;
+}
+.weapons > div > h2 {
+    flex-shrink: 2;
+    flex-wrap: nowrap;
+}
+.player {
+    display: flex;
+    flex-direction: column;
+}
+
+.versus {
+    flex-shrink: 3;
 }
 
 #playerWeapon {
@@ -71,12 +76,6 @@ body {
     border: solid 10px rgb(101, 29, 3);
     border-radius: 50%;
 }
-/*
-.results {
-    display: flex;
-    justify-content: space-around;
-
-}*/
 
 .score > h2 {
     font-size: 30px;
